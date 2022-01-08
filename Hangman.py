@@ -1,5 +1,7 @@
 import random
 
+
+
 def generateWord():
     with open("words.txt", "r") as file:
         allText = file.read()
@@ -54,3 +56,14 @@ while displayCurrentWords() != wordToGuess:
 
 
 print(f"You guessed the word '{wordToGuess}' correctly")
+print('''
+  , ; ,   .-'"""'-.   , ; ,
+  \\|/  .'         '.  \|//
+   \-;-/   ()   ()   \-;-/
+   // ;               ; \\
+  //__; :.         .; ;__\\
+ `-----\'.'-.....-'.'/-----'
+        '.'.-.-,_.'.'
+          '(  (..-'
+            '-'
+''')
