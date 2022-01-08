@@ -1,2 +1,2 @@
 # Hangman
-A simple hangman app for fun.
+A simple hangman script for fun.
