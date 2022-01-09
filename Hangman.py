@@ -19,7 +19,7 @@ def displayCurrentWords():
     return currentRightChoices
 
 def checkwords():
-    guessedWord = input("Guess A letter -> ")
+    guessedWord = input("Guess A letter -> ").lower()
     print(f"Word -> {displayCurrentWords()}")
 
     if not guessedWord.isalpha():
