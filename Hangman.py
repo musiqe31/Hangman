@@ -1,7 +1,5 @@
 import random
 
-
-
 def generateWord():
     with open("words.txt", "r") as file:
         allText = file.read()
