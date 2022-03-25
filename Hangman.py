@@ -1,13 +1,17 @@
 import random
+from images import ( 
+    tongueOut,
+    titleWords
+)
 
-def generateWord():
-    with open("words.txt", "r") as file:
+def generateWord(doc):
+    with open(doc, "r") as file:
         allText = file.read()
         words = list(map(str, allText.split()))
     
         return random.choice(words)
 
-wordToGuess = generateWord()
+wordToGuess = generateWord("words.txt")
 
 def displayCurrentWords():
     currentRightChoices = ""
@@ -19,7 +23,7 @@ def displayCurrentWords():
     return currentRightChoices
 
 def checkwords():
-    guessedWord = input("Guess A letter -> ").lower()
+    guessedWord = input("Guess A letter -> ")
     print(f"Word -> {displayCurrentWords()}")
 
     if not guessedWord.isalpha():
@@ -32,20 +36,9 @@ def checkwords():
     if guessedWord not in wordToGuess and guessedWord.isalpha():
         print(f"{guessedWord} is not in this word")
 
-def intro():
-    print('''
-     _                                             
-| |                                            
-| |__   __ _ _ __   __ _ _ __ ___   __ _ _ __  
-| '_ \ / _` | '_ \ / _` | '_ ` _ \ / _` | '_ \   
-| | | | (_| | | | | (_| | | | | | | (_| | | | |
-|_| |_|\__,_|_| |_|\__, |_| |_| |_|\__,_|_| |_|
-                    __/ |                      
-                   |___/                       
-''')
     print("Welcome to a game of hangman where there is no penalty for being wrong. \nThis version is meant for you to train your brain and help build your vocablulary. Enjoy... :-)\n")
 
-intro()
+titleWords()
 word = []
 generateWord()
 
@@ -54,14 +47,4 @@ while displayCurrentWords() != wordToGuess:
 
 
 print(f"You guessed the word '{wordToGuess}' correctly")
-print('''
-  , ; ,   .-'"""'-.   , ; ,
-  \\|/  .'         '.  \|//
-   \-;-/   ()   ()   \-;-/
-   // ;               ; \\
-  //__; :.         .; ;__\\
- `-----\'.'-.....-'.'/-----'
-        '.'.-.-,_.'.'
-          '(  (..-'
-            '-'
-''')
+tongueOut()
